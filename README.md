@@ -4,13 +4,13 @@ A Clojure library for accessing the system clipboard via AWT
 
 ## Getting started
 
+`snipsnap` is available as a Maven artifact via [Clojars](http://clojars.org/snipsnap).
+
 Simply add snipsnap as a dependency to your lein/cake project:
 
 ```clojure
 [snipsnap "0.1.0"]
 ```
-
-`snipsnap` is available as a Maven artifact via [Clojars](http://clojars.org/snipsnap).
 
 ## Usage
 
