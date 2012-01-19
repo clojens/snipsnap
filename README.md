@@ -10,7 +10,7 @@ A Clojure library for accessing the system clipboard via AWT
                                
 (get-text)                     ;; Will return "Hello Clipboard!"
 
-(set-content! content)         ;; Sets the clipboard content
+(set-content! transferable)    ;; Sets the clipboard content
                                ;; to any implementation of
                                ;; java.awt.datatransfer.Transferable
                                
