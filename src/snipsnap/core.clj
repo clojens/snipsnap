@@ -7,7 +7,8 @@
                                   ClipboardOwner
                                   Transferable
                                   StringSelection
-                                  DataFlavor)))
+                                  DataFlavor
+                                  FlavorListener)))
 
 (def owner (reify ClipboardOwner
              (lostOwnership [this clipboard contents] ())))
@@ -34,3 +35,18 @@
   (let [current (get-text)]
     (set-content! (StringSelection. text))
     current))
+
+
+(def content (atom (get-content)))
+
+(defn watch [key f]
+  (add-watch content key f))
+
+(defn unwatch [key f]
+  (remove-watch content key))
+
+;; Listen to the clipboard for content changes
+(let [listener (reify FlavorListener
+                      (flavorsChanged [this e]
+                                      (reset! content (get-content))))]
+  (.addFlavorListener (get-clipboard) listener))
